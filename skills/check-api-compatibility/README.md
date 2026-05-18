@@ -10,9 +10,10 @@ This skill detects changes in the API specification, reports breaking and non-br
 
 ## Modes
 
-- **`head <spec>`** — previous version from the repository, current version from disk. Use this before committing changes.
-- **`log <spec>`** — both versions from the repository. Use this to verify a committed version bump.
-- **`diff <old-spec> <new-spec>`** — both versions from disk. Use this to compare two local files directly.
+- `head <spec>` — check changes before committing (previous repository version vs. current disk version).
+- `log <spec>` — check trunk changes (previous repository version vs. latest repository version).
+- `base <spec>` — check pull requests (branch point version vs. branch tip version).
+- `diff <old-spec> <new-spec>` — compare local files (old disk version vs. new disk version).
 
 ## Output
 

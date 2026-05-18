@@ -17,20 +17,27 @@ This is your authoritative definition of what constitutes a breaking vs. non-bre
 
 Parse `$ARGUMENTS` as `<mode> <args...>`. If the mode is missing or not one of the values below, tell the user the valid modes and stop.
 
-**`head <spec>`** — previous version from the repository, current version from disk. Use this before committing changes.
+**`head <spec>`** — previous version from the repository, current version from disk.
 
 1. Confirm `<spec>` exists on disk and is in OpenAPI format. If not, tell the user and stop.
 2. **Previous version:** run `git show HEAD:"<spec>"`. If it fails, tell the user "No committed version found for `<spec>`." and stop.
 3. **Current version:** read `<spec>` from disk.
 
-**`log <spec>`** — both versions from the repository. Use this to verify a committed version bump, e.g. in a CI/CD pipeline.
+**`log <spec>`** — both versions from the repository.
 
 1. Run `git log --follow -n 2 --format="%H" -- "<spec>"`. If no output, tell the user "No committed version found for `<spec>`." and stop. If only one commit, tell the user "Only one committed version found for `<spec>` — no previous version to compare against." and stop.
 2. Let `<latest>` be the first hash and `<previous>` be the second hash.
 3. **Previous version:** run `git show <previous>:"<spec>"`.
 4. **Current version:** run `git show <latest>:"<spec>"`.
 
-**`diff <old-spec> <new-spec>`** — both versions from disk. Use this to compare two local files directly.
+**`base <spec>`** — previous version from the branch point, current version from the tip of the branch.
+
+1. Determine the base branch by running `git symbolic-ref refs/remotes/origin/HEAD | sed 's|refs/remotes/origin/||'`. If it fails, tell the user "Cannot determine base branch." and stop.
+2. Run `git merge-base HEAD "origin/<base-branch>"` to find the commit where the branch diverged. If it fails, tell the user "Cannot determine merge base." and stop.
+3. **Previous version:** run `git show <merge-base>:"<spec>"`. If it fails, the file did not exist at the branch point — tell the user "File was introduced in this branch — no previous version to compare against." and stop.
+4. **Current version:** run `git show HEAD:"<spec>"`. If it fails, tell the user "No committed version found for `<spec>`." and stop.
+
+**`diff <old-spec> <new-spec>`** — both versions from disk.
 
 1. Confirm both files exist and are in OpenAPI format. If not, tell the user and stop.
 2. **Previous version:** read `<old-spec>` from disk.
