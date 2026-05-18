@@ -88,3 +88,8 @@ Verdict lines:
 4. No changes, incorrect version: `✗ No changes detected — expected <old> (unchanged), not <new>.`
 5. Breaking present, incorrect version: `✗ Breaking changes detected — expected <expected>, not <new>.`
 6. Non-breaking present, incorrect version: `✗ Non-breaking changes detected — expected <expected>, not <new>.`
+
+Close the section with a result line:
+
+- Verdict is correct (cases 1–3): `PASS`
+- Verdict shows an error (cases 4–6): `FAIL`

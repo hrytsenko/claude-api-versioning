@@ -13,3 +13,34 @@ A Claude Code plugin to enforce the API versioning policy for compatibility chec
 /plugin marketplace add hrytsenko/claude-api-versioning
 /plugin install api-versioning
 ```
+
+## CI/CD
+
+The `docker` directory contains a Docker image that runs `check-api-compatibility` against an arbitrary repository.
+
+**Build:**
+
+```bash
+docker build -t hrytsenko/api-versioning docker/
+```
+
+**Run:**
+
+```bash
+docker run
+  -e ANTHROPIC_API_KEY=<your-api-key> \
+  -e PROJECT_REPO=<your-repo> \
+  -e SPEC_FILE=<your-spec> \
+  hrytsenko/api-versioning
+```
+
+To override the model (default: `claude-sonnet-4-5`):
+
+```bash
+docker run \
+  ...
+  -e ANTHROPIC_MODEL=claude-opus-4-5 \
+  hrytsenko/api-versioning
+```
+
+The container exits with code `1` if the version verdict fails, making it suitable for use as a pipeline gate.
