@@ -4,7 +4,16 @@ This document defines what constitutes a breaking vs. non-breaking change to an 
 
 A breaking change requires a major version bump. A non-breaking change may be released as a minor or patch version.
 
+## Negligible changes
+
+The following changes do not affect compatibility and do not impact version, so they must be ignored:
+
+- Changes to contract metadata.
+- Adding, editing, or removing comments.
+
 ## Breaking changes
+
+The following changes break compatibility and require bump of major version:
 
 - Remove an entire operation.
 - Make an optional request parameter, header, or field required.
@@ -16,6 +25,8 @@ A breaking change requires a major version bump. A non-breaking change may be re
 
 ## Non-breaking changes
 
+The following changes preserve compatibility but require bump of the minor version:
+
 - Add a new operation.
 - Add an optional request parameter, header, or field.
 - Add a required request parameter, header, or field with a default value.
@@ -25,8 +36,10 @@ A breaking change requires a major version bump. A non-breaking change may be re
 
 ## Versioning rules
 
-| Changes detected  | Action                                                    |
-|-------------------|-----------------------------------------------------------|
-| Any breaking      | Increment major and reset minor to 0, e.g. `1.2` → `2.0`. |
-| Non-breaking only | Increment minor, e.g. `1.2` → `1.3`.                      |
-| None              | Do nothing.                                               |
+The following table summarizes the required action for each type of detected changes:
+
+| Detected changes        | Required action                                           |
+|-------------------------|-----------------------------------------------------------|
+| Any breaking            | Increment major and reset minor to 0, e.g. `1.2` → `2.0`. |
+| Non-breaking only       | Increment minor, e.g. `1.2` → `1.3`.                      |
+| Negligible only or none | Do nothing.                                               |
