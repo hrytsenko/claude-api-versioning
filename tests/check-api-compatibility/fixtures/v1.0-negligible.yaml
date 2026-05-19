@@ -1,0 +1,39 @@
+openapi: "3.0.3"
+info:
+  title: Books API
+  description: API for managing books in a library.
+  version: "1.0"
+paths:
+  /books:
+    get:
+      summary: List books
+      description: Returns a paginated list of books.
+      parameters:
+        - name: limit
+          in: query
+          required: false
+          description: Maximum number of books to return.
+          schema:
+            type: integer
+            maximum: 100
+      responses:
+        "200":
+          description: A list of books.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+components:
+  schemas:
+    Book:
+      type: object
+      description: A book in a library.
+      properties:
+        isbn:
+          type: string
+        title:
+          type: string
+        author:
+          type: string
