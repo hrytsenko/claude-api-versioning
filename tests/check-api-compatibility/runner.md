@@ -1,12 +1,13 @@
 # Test Runner
 
-You are running automated tests for the `check-api-compatibility` skill. Follow the instructions below exactly.
+You are running automated tests for the `check-api-compatibility` skill. Follow every step below in order.
 
-## Instructions
+## Step 1 — Run tests
 
-All test cases use `tests/check-api-compatibility/fixtures/` as the fixtures folder. The old spec is `v1.0.yaml` and all tests expect `PASS` from the skill.
+All test cases use `tests/check-api-compatibility/fixtures/` as the fixtures folder.
 
-Run all test cases in the table below one by one. Do not stop until every row has been executed:
+For each row in the table, run the skill and silently record the result.
+Do not move to Step 2 until every row has been executed.
 
 | Name                                 | New spec                  |
 |--------------------------------------|---------------------------|
@@ -16,18 +17,19 @@ Run all test cases in the table below one by one. Do not stop until every row ha
 
 For each test case:
 
-1. Run `claude -p "/api-versioning:check-api-compatibility diff tests/check-api-compatibility/fixtures/v1.0.yaml tests/check-api-compatibility/fixtures/<new-spec>" --allowedTools "Read,Bash"` and copy the complete raw output verbatim — do not summarize, shorten, or omit any part of it.
-2. Record the outcome:
-   - Output contains `PASS`: `✓ <name>`
-   - Output contains `FAIL`: `✗ <name>`
+1. Run `claude -p "/api-versioning:check-api-compatibility diff tests/check-api-compatibility/fixtures/v1.0.yaml tests/check-api-compatibility/fixtures/<new-spec>" --allowedTools "Read,Bash"`.
+2. Check whether the output ends with `PASS` or `FAIL` and record:
+   - When `PASS`: `✓ <name>`
+   - When `FAIL`: `✗ <name>`
 
-Only after all test cases have been executed, print the collected outcomes and a summary line:
+## Step 2 — Report results
+
+Print the following report:
 
 ```
-Results: <passed>/<total>
+# Test Report
+
+<bulleted list of test results>
+
+<PASS when all tests passed, FAIL when any test failed>
 ```
-
-Add a result line:
-
-- All tests are passed: `PASS`
-- Any test failed: `FAIL`
