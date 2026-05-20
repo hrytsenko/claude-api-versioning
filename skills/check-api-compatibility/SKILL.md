@@ -49,7 +49,7 @@ Carefully compare the two spec versions yourself. Identify every difference: add
 
 Do not count changes to `info.version` as a functional API change.
 
-### Step 4 — Versioning report
+### Step 4 — Report results
 
 Prepare the following inputs:
 
@@ -68,4 +68,4 @@ Prepare the following inputs:
 
 **Result** — `PASS` for verdict cases 1–3, `FAIL` for cases 4–6.
 
-Produce the report by filling in `assets/API_VERSIONING_REPORT.md` with these inputs.
+Print the report to the output using `assets/API_VERSIONING_REPORT.md` as the structure template.
