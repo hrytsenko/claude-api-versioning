@@ -4,7 +4,7 @@ A Claude Code plugin and skill to enforce the API versioning policy.
 
 See [check-api-compatibility](skills/check-api-compatibility/README.md) for details.
 
-## Usage
+## Local
 
 **Install plugin:**
 
@@ -13,19 +13,13 @@ See [check-api-compatibility](skills/check-api-compatibility/README.md) for deta
 /plugin install api-versioning
 ```
 
-**Run skill:**
+**Run skill (CLI):**
 
 ```
 /api-versioning:check-api-compatibility head <spec-file>
 ```
 
-**Test skill:**
-
-```
-./tests/check-api-compatibility/run.sh
-```
-
-## CI/CD
+## Pipeline
 
 **Build image:**
 
@@ -33,7 +27,7 @@ See [check-api-compatibility](skills/check-api-compatibility/README.md) for deta
 docker build -t hrytsenko/api-versioning docker/
 ```
 
-**Run check:**
+**Run skill (CI):**
 
 ```bash
 docker run \
@@ -41,4 +35,18 @@ docker run \
   -e PROJECT_REPO=<your-repo> \
   -e SPEC_FILE=<your-spec> \
   hrytsenko/api-versioning
+```
+
+## Development
+
+**Run tests:**
+
+```bash
+./tests/check-api-compatibility/run-tests.sh
+```
+
+**Run skill (debug):**
+
+```bash
+./tests/check-api-compatibility/run-skill.sh <changed-spec>
 ```
