@@ -1,6 +1,6 @@
 # claude-api-versioning
 
-A Claude Code plugin and skill to enforce the API versioning policy for compatibility checks.
+A Claude Code plugin and skill to enforce the API versioning policy.
 
 See [check-api-compatibility](skills/check-api-compatibility/README.md) for details.
 

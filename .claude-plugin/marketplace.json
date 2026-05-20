@@ -6,7 +6,7 @@
   "plugins": [
     {
       "name": "api-versioning",
-      "description": "Enforce the API versioning policy for compatibility checks and version bumps.",
+      "description": "Enforce the API versioning policy.",
       "source": {
         "source": "url",
         "url": "https://github.com/hrytsenko/claude-api-versioning.git"
