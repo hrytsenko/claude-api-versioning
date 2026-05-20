@@ -10,7 +10,7 @@ You are performing a structured API backward-compatibility review based on the p
 
 ### Step 1 — Read policy
 
-Check whether `API_VERSIONING.md` exists in the project root. If it does, use it as the policy. Otherwise fall back to `assets/API_VERSIONING.md` bundled with this skill.
+Check whether `API_VERSIONING_POLICY.md` exists in the project root. If it does, use it as the policy. Otherwise fall back to `assets/API_VERSIONING_POLICY.md` bundled with this skill.
 This is your authoritative definition of what constitutes a breaking vs. non-breaking change. Keep it in mind throughout.
 
 ### Step 2 — Determine specifications
@@ -49,45 +49,15 @@ Carefully compare the two spec versions yourself. Identify every difference: add
 
 Do not count changes to `info.version` as a functional API change.
 
-### Step 4 — Compatibility verdict
+### Step 4 — Versioning report
 
-Using the policy from Step 1, classify each difference as **breaking** or **non-breaking** and append a **Compatibility verdict** section:
+Prepare the following inputs:
 
-```
-## Compatibility verdict
+**Breaking changes** — classify differences from Step 3 per policy. Each bullet on one line: name the operation or field, describe what changed, include the line number in the current spec, e.g. `GET /books: added optional isbn query parameter (line 42)`. Write `None.` if there are none.
 
-### Breaking changes
+**Non-breaking changes** — same format. Write `None.` if there are none.
 
-<bulleted list, or "None.">
-
-### Non-breaking changes
-
-<bulleted list, or "None.">
-```
-
-If there are no differences at all (excluding version):
-
-```
-No changes detected.
-```
-
-Keep each bullet to one line: name the operation or field, describe what changed, and include the line number in the current spec where the change appears — e.g. `GET /books: added optional isbn query parameter (line 42)`. Be concise and human-readable.
-
-### Step 5 — Version verdict
-
-Extract `info.version` from both the old and new spec. Treat it as a `major.minor` string (e.g. `1.0`, `2.3`).
-
-Determine the **required** bump using the versioning rules from the policy read in Step 1. Compute the **expected version** by applying that bump to the old version.
-
-Compare the actual version change to the required one and append a **Version verdict** section:
-
-```
-## Version verdict
-
-<verdict line>
-```
-
-Verdict lines:
+**Version verdict line** — extract `info.version` from both specs as a `major.minor` string. Determine the required bump using the versioning rules from the policy. Compute the expected version. Choose the matching verdict line:
 
 1. No changes, version unchanged: `✓ No changes — version unchanged (<old>).`
 2. Breaking changes, major bumped: `✓ Breaking changes — major version correctly updated (<old> → <new>).`
@@ -96,7 +66,6 @@ Verdict lines:
 5. Breaking present, incorrect version: `✗ Breaking changes detected — expected <expected>, not <new>.`
 6. Non-breaking present, incorrect version: `✗ Non-breaking changes detected — expected <expected>, not <new>.`
 
-Close the section with a result line:
+**Result** — `PASS` for verdict cases 1–3, `FAIL` for cases 4–6.
 
-- Verdict is correct (cases 1–3): `PASS`
-- Verdict shows an error (cases 4–6): `FAIL`
+Produce the report by filling in `assets/API_VERSIONING_REPORT.md` with these inputs.

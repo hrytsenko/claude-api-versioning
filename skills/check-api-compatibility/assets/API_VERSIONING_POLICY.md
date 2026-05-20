@@ -1,4 +1,4 @@
-# API Compatibility Policy
+# API Versioning Policy
 
 This document defines what constitutes a breaking vs. non-breaking change to an API specification.
 
