@@ -17,7 +17,7 @@ Do not move to Step 2 until every row has been executed.
 
 For each test case:
 
-1. Run `claude -p "/api-versioning:check-api-compatibility diff tests/check-api-compatibility/fixtures/v1.0.yaml tests/check-api-compatibility/fixtures/<new-spec>" --allowedTools "Read,Bash"`.
+1. Run `bash tests/check-api-compatibility/run-skill.sh <new-spec>`.
 2. Check whether the output ends with `PASS` or `FAIL` and record:
    - When `PASS`: `✓ <name>`
    - When `FAIL`: `✗ <name>`
