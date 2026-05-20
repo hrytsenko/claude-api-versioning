@@ -1,13 +1,10 @@
 # claude-api-versioning
 
-A Claude Code plugin to enforce the API versioning policy for compatibility checks and version bumps.
+A Claude Code plugin and skill to enforce the API versioning policy for compatibility checks.
 
-## Skills
+See [check-api-compatibility](skills/check-api-compatibility/README.md) for details.
 
-- [check-api-compatibility](skills/check-api-compatibility/README.md) — check API compatibility and verify the version bump.
-- [bump-api-version](skills/bump-api-version/README.md) — bump the API specification version according to detected API changes.
-
-## Use
+## Usage
 
 **Install plugin:**
 
@@ -20,6 +17,12 @@ A Claude Code plugin to enforce the API versioning policy for compatibility chec
 
 ```
 /api-versioning:check-api-compatibility head <spec-file>
+```
+
+**Test skill:**
+
+```
+./tests/check-api-compatibility/run.sh
 ```
 
 ## CI/CD
@@ -38,12 +41,4 @@ docker run \
   -e PROJECT_REPO=<your-repo> \
   -e SPEC_FILE=<your-spec> \
   hrytsenko/api-versioning
-```
-
-## Test
-
-**Run tests:**
-
-```
-./tests/check-api-compatibility/run.sh
 ```

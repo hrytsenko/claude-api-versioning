@@ -1,6 +1,6 @@
 {
   "name": "api-versioning",
-  "description": "Enforce the API versioning policy for compatibility checks and version bumps.",
+  "description": "Enforce the API versioning policy for compatibility checks.",
   "version": "1.0.0",
   "author": {
     "name": "Anton Hrytsenko"
