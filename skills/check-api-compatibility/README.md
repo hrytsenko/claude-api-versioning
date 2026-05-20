@@ -22,6 +22,6 @@ This skill detects changes in the API specification, reports breaking and non-br
 
 ## Policy
 
-Compatibility and versioning rules are defined in `resources/API_VERSIONING.md`.
+Compatibility and versioning rules are defined in `assets/API_VERSIONING.md`.
 
 To override them for a specific project, place an `API_VERSIONING.md` file in the project root.

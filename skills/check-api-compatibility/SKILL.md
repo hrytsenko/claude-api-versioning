@@ -10,7 +10,7 @@ You are performing a structured API backward-compatibility review based on the p
 
 ### Step 1 — Read policy
 
-Check whether `API_VERSIONING.md` exists in the project root. If it does, use it as the policy. Otherwise fall back to `resources/API_VERSIONING.md` bundled with this skill.
+Check whether `API_VERSIONING.md` exists in the project root. If it does, use it as the policy. Otherwise fall back to `assets/API_VERSIONING.md` bundled with this skill.
 This is your authoritative definition of what constitutes a breaking vs. non-breaking change. Keep it in mind throughout.
 
 ### Step 2 — Determine specifications
