@@ -3,6 +3,7 @@
 A Claude Code plugin and skill to enforce the API versioning policy.
 
 See [check-api-compatibility](skills/check-api-compatibility/README.md) for details.
+See [tests](tests/check-api-compatibility/README.md) for development and testing.
 
 ## Local
 
@@ -35,18 +36,4 @@ docker run \
   -e PROJECT_REPO=<your-repo> \
   -e SPEC_FILE=<your-spec> \
   hrytsenko/api-versioning
-```
-
-## Development
-
-**Run tests:**
-
-```bash
-./tests/check-api-compatibility/run-tests.sh
-```
-
-**Run skill (debug):**
-
-```bash
-./tests/check-api-compatibility/run-skill.sh <changed-spec>
 ```

@@ -18,9 +18,10 @@ Do not move to Step 2 until every row has been executed.
 For each test case:
 
 1. Run `bash tests/check-api-compatibility/run-skill.sh <new-spec>`.
-2. Check whether the output ends with `PASS` or `FAIL` and record:
-   - When `PASS`: `✓ <name>`
-   - When `FAIL`: `✗ <name>`
+2. Parse the JSON output. Extract `result` for the verdict, `usage.input_tokens + usage.output_tokens` for total tokens, and `duration_ms` for duration.
+3. Record:
+   - When `result` ends with `PASS`: `✓ <name> — <tokens> tokens, <duration_ms> ms`
+   - When `result` ends with `FAIL`: `✗ <name> — <tokens> tokens, <duration_ms> ms`
 
 ## Step 2 — Report results
 
