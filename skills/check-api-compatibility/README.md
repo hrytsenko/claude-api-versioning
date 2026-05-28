@@ -10,15 +10,15 @@ This skill detects changes in the API specification, reports breaking and non-br
 
 ## Modes
 
-- `head <spec>` — check changes before committing (previous repository version vs. current disk version).
-- `log <spec>` — check trunk changes (previous repository version vs. latest repository version).
-- `base <spec>` — check pull requests (branch point version vs. branch tip version).
-- `diff <old-spec> <new-spec>` — compare local files (old disk version vs. new disk version).
+- `head <spec>` — check changes before committing (current disk version vs. previous repository version).
+- `log <spec>` — check trunk changes (latest repository version vs. previous repository version).
+- `base <spec>` — check pull requests (branch tip version vs. branch point version).
+- `diff <new-spec> <old-spec>` — compare local files (new disk version vs. old disk version).
 
 ## Output
 
 - **Compatibility verdict** — breaking and non-breaking changes between the two versions.
-- **Version verdict** — whether `info.version` is consistent with the detected changes.
+- **Version verdict** — whether the contract version is consistent with the detected changes.
 
 ## Policy
 

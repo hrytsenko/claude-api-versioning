@@ -37,11 +37,11 @@ Parse `$ARGUMENTS` as `<mode> <args...>`. If the mode is missing or not one of t
 3. **Previous version:** run `git show <merge-base>:"<spec>"`. If it fails, the file did not exist at the branch point — tell the user "File was introduced in this branch — no previous version to compare against." and stop.
 4. **Current version:** run `git show HEAD:"<spec>"`. If it fails, tell the user "No committed version found for `<spec>`." and stop.
 
-**`diff <old-spec> <new-spec>`** — both versions from disk.
+**`diff <new-spec> <old-spec>`** — both versions from disk.
 
 1. Confirm both files exist and are in OpenAPI format. If not, tell the user and stop.
-2. **Previous version:** read `<old-spec>` from disk.
-3. **Current version:** read `<new-spec>` from disk.
+2. **Current version:** read `<new-spec>` from disk.
+3. **Previous version:** read `<old-spec>` from disk.
 
 ### Step 3 — Compare specifications
 
