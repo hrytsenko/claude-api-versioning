@@ -20,6 +20,14 @@ See [tests](tests/check-api-compatibility/README.md) for development and testing
 /api-versioning:check-api-compatibility head <spec-file>
 ```
 
+**Run tests:**
+
+Set `ANTHROPIC_API_KEY` for `claude` non-interactive mode.
+
+```bash
+./tests/check-api-compatibility/run-tests.sh
+```
+
 ## Pipeline
 
 **Build image:**
