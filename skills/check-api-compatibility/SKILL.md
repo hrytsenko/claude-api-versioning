@@ -51,11 +51,15 @@ Do not count changes to `info.version` as a functional API change.
 
 ### Step 4 — Report results
 
+Classify each difference from Step 3 as breaking, non-breaking, or negligible per policy. Leave negligible changes out of the report and treat them as no change when choosing the verdict.
+
+Format each change as a bullet on one line: the operation name, a concise description of what changed, and the line number in the current specification where the change is located, e.g. `GET /books: added optional isbn query parameter (line 42)`.
+
 Prepare the following inputs:
 
-**Breaking changes** — classify differences from Step 3 per policy. Each bullet on one line: name the operation or field, describe what changed, include the line number in the current spec, e.g. `GET /books: added optional isbn query parameter (line 42)`. Write `None.` if there are none.
+**Breaking changes** — bullets for breaking changes. Write `None.` if there are none.
 
-**Non-breaking changes** — same format. Write `None.` if there are none.
+**Non-breaking changes** — bullets for non-breaking changes. Write `None.` if there are none.
 
 **Version verdict line** — extract `info.version` from both specs as a `major.minor` string. Determine the required bump using the versioning rules from the policy. Compute the expected version. Choose the matching verdict line:
 
@@ -69,3 +73,5 @@ Prepare the following inputs:
 **Result** — `PASS` for verdict cases 1–3, `FAIL` for cases 4–6.
 
 Print the report to the output using `assets/API_VERSIONING_REPORT.md` as the structure template.
+
+The report must be your entire final output. Do not add any text before or after it, such as a summary, analysis, or recommendations. The last line must be exactly `PASS` or `FAIL` with no other characters, so that external tools can parse the result.
