@@ -11,7 +11,7 @@ See [tests](tests/check-api-compatibility/README.md) for development and testing
 
 ```
 /plugin marketplace add hrytsenko/claude-api-versioning
-/plugin install api-versioning
+/plugin install api-versioning@claude-api-versioning
 ```
 
 **Run skill (CLI):**

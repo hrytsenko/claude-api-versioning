@@ -1,7 +1,6 @@
 {
   "name": "api-versioning",
   "description": "Enforce the API versioning policy.",
-  "version": "1.0.0",
   "author": {
     "name": "Anton Hrytsenko"
   },

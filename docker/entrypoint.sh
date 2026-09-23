@@ -13,7 +13,7 @@ echo "==> Registering marketplace"
 claude plugin marketplace add hrytsenko/claude-api-versioning
 
 echo "==> Installing skill"
-claude plugin install api-versioning
+claude plugin install api-versioning@claude-api-versioning
 
 echo "==> Running skill"
 cd /workspace/project

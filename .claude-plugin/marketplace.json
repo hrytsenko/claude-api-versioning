@@ -1,5 +1,6 @@
 {
   "name": "claude-api-versioning",
+  "description": "Plugin for API versioning.",
   "owner": {
     "name": "Anton Hrytsenko"
   },
@@ -7,10 +8,7 @@
     {
       "name": "api-versioning",
       "description": "Enforce the API versioning policy.",
-      "source": {
-        "source": "url",
-        "url": "https://github.com/hrytsenko/claude-api-versioning.git"
-      }
+      "source": "./"
     }
   ]
 }
