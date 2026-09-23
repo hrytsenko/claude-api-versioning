@@ -3,7 +3,6 @@
 A Claude Code plugin and skill to enforce the API versioning policy.
 
 See [check-api-compatibility](skills/check-api-compatibility/README.md) for details.
-See [tests](tests/check-api-compatibility/README.md) for development and testing.
 
 ## Local
 
@@ -20,13 +19,12 @@ See [tests](tests/check-api-compatibility/README.md) for development and testing
 /api-versioning:check-api-compatibility head <spec-file>
 ```
 
-**Run tests:**
-
-Set `ANTHROPIC_API_KEY` for `claude` non-interactive mode.
+**Run evals:**
 
 ```bash
-./tests/check-api-compatibility/run-tests.sh
+claude plugin eval . --scaffold --trust-plugin
 ```
+Add `--runs 1 --ablation none` for a quick single run without the no-plugin baseline.
 
 ## Pipeline
 
