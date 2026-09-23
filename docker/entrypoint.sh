@@ -4,7 +4,7 @@ set -euo pipefail
 : "${ANTHROPIC_API_KEY:?ANTHROPIC_API_KEY is required}"
 : "${PROJECT_REPO:?PROJECT_REPO is required}"
 : "${SPEC_FILE:?SPEC_FILE is required}"
-ANTHROPIC_MODEL="${ANTHROPIC_MODEL:-claude-sonnet-4-5}"
+ANTHROPIC_MODEL="${ANTHROPIC_MODEL:-claude-haiku-4-5}"
 
 echo "==> Cloning project: $PROJECT_REPO"
 git clone "$PROJECT_REPO" /workspace/project
