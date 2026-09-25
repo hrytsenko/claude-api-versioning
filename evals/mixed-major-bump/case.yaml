@@ -1,4 +1,4 @@
 schema_version: "1.1"
-name: non-breaking-changes
+name: mixed-major-bump
 context:
   scaffold_script: scaffold.sh

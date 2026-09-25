@@ -1,6 +1,5 @@
 ---
-description: Negligible change, version unchanged
-tags: [diff]
+description: Negligible changes, version unchanged
 model: claude-haiku-4-5
 max_turns: 15
 allowed_tools: [Read, Glob, Grep, Skill]

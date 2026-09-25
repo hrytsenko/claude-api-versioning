@@ -1,6 +1,5 @@
 ---
-description: Non-breaking change, minor bumped
-tags: [diff]
+description: Non-breaking changes, minor bumped
 model: claude-haiku-4-5
 max_turns: 15
 allowed_tools: [Read, Glob, Grep, Skill]

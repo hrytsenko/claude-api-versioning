@@ -1,6 +1,5 @@
 ---
-description: Breaking change, major bumped
-tags: [diff]
+description: Breaking changes, major bumped
 model: claude-haiku-4-5
 max_turns: 15
 allowed_tools: [Read, Glob, Grep, Skill]
