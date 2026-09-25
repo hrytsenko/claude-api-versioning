@@ -6,11 +6,14 @@ argument-hint: <mode> <spec-file>
 
 ## Instructions
 
-You are performing a structured API backward-compatibility review based on the provided policy. Follow every step below in order.
+You are performing a structured API backward-compatibility review based on the provided policy.
+Follow each step below in order. Work through the steps silently: do not narrate your process, list differences, or explain classifications in your response.
+Your only output should be the report produced in the final step, or the specified error message if a step instructs you to stop.
 
 ### Step 1 — Read policy
 
-Check whether `API_VERSIONING_POLICY.md` exists in the project root. If it does, use it as the policy. Otherwise fall back to `references/API_VERSIONING_POLICY.md` bundled with this skill.
+Check whether `API_VERSIONING_POLICY.md` exists in the project root. If it does, use it as the policy.
+Otherwise fall back to `references/API_VERSIONING_POLICY.md` in this skill's base directory.
 This is your authoritative definition of what constitutes a breaking vs. non-breaking change. Keep it in mind throughout.
 
 ### Step 2 — Determine specifications
@@ -70,8 +73,30 @@ Prepare the following inputs:
 5. Breaking present, incorrect version: `✗ Breaking changes detected — expected <expected>, not <new>.`
 6. Non-breaking present, incorrect version: `✗ Non-breaking changes detected — expected <expected>, not <new>.`
 
-**Result** — `PASS` for verdict cases 1–3, `FAIL` for cases 4–6.
+**Result** — `PASS` for cases 1–3, `FAIL` for cases 4–6.
 
-Print the report to the output using `assets/API_VERSIONING_REPORT.md` as the structure template.
+Print the report by filling in the following template. 
+Output it as plain Markdown, without the `<template>` tags and without wrapping it in a code block:
 
-The report must be your entire final output. Do not add any text before or after it, such as a summary, analysis, or recommendations. The last line must be exactly `PASS` or `FAIL` with no other characters, so that external tools can parse the result.
+<template>
+# Report
+
+## Compatibility verdict
+
+### Breaking changes
+
+<one "- " bullet per breaking change, or None.>
+
+### Non-breaking changes
+
+<one "- " bullet per non-breaking change, or None.>
+
+## Version verdict
+
+<version verdict line>
+
+<PASS or FAIL>
+</template>
+
+The report must be your entire final output. Do not add any text before or after it, such as step-by-step notes, a summary, analysis, or recommendations. 
+The last line must be exactly `PASS` or `FAIL` with no other characters, so that external tools can parse the result.

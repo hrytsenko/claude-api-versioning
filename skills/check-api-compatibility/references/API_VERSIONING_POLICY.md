@@ -32,7 +32,7 @@ The following changes preserve compatibility but require bump of the minor versi
 The following changes do not affect compatibility and do not impact version, so they must be ignored:
 
 - Change contract metadata.
-- Add, edit, or remove comments.
+- Add, edit, or remove comments or descriptions.
 
 ## Versioning rules
 
